@@ -77,10 +77,13 @@
 <div class="overlay">
   <h1>Welcome to DineEase</h1>
   <p>Your ultimate solution for seamless table reservations and menu management</p>
-  <div class="button-group">
+    <div class="button-group">
     <a href="menu" class="btn">View Menu</a>
     <a href="reservations.jsp" class="btn">Reserve a Table</a>
     <a href="hello" class="btn">Hello Servlet</a>
+    <a href="showUsers" class="btn">View Users</a>
+    <a href="showOrders" class="btn">View Orders</a>
+    <a href="addOrder.jsp" class="btn">Add Order</a>
   </div>
 </div>
 </body>
