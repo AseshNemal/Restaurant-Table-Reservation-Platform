@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Grilled Chicken",
+    "price": 12.99,
+    "description": "Tender grilled chicken with herbs.",
+    "available": true,
+    "imageUrl": "images/grilled_chicken.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Veggie Burger",
+    "price": 8.99,
+    "description": "Delicious burger with plant-based patty.",
+    "available": false,
+    "imageUrl": "images/veggie_burger.jpg"
+  }
+]
