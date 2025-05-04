@@ -5,21 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.restaurant_table_reservation.model.Order;
-import com.example.restaurant_table_reservation.utils.OrderFileUtils;
+import com.example.restaurant_table_reservation.utils.FileUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class OrderService {
     private List<Order> orderList;
     private Gson gson = new Gson();
-    private static final String ORDER_FILE = "orders.json";
 
     public OrderService() {
         loadOrders();
     }
 
     private void loadOrders() {
-        String json = OrderFileUtils.readFile();
+        String json = FileUtils.readFile();
         Type listType = new TypeToken<List<Order>>(){}.getType();
         orderList = gson.fromJson(json, listType);
         if (orderList == null) orderList = new ArrayList<>();
@@ -27,7 +26,7 @@ public class OrderService {
     }
 
     private void saveOrders() {
-        OrderFileUtils.writeFile(gson.toJson(orderList));
+        FileUtils.writeFile(gson.toJson(orderList));
     }
 
     public List<Order> getAllOrders() {
@@ -39,22 +38,24 @@ public class OrderService {
         order.setId(id);
         orderList.add(order);
         saveOrders();
-        loadOrders();
-    }
-
-    public void updateOrder(Order updatedOrder) {
-        for (int i = 0; i < orderList.size(); i++) {
-            if (orderList.get(i).getId() == updatedOrder.getId()) {
-                orderList.set(i, updatedOrder);
-                saveOrders();
-                break;
-            }
-        }
     }
 
     public void deleteOrder(int id) {
         orderList.removeIf(order -> order.getId() == id);
         saveOrders();
+    }
+
+    public void updateOrder(Order updatedOrder) {
+        for (Order order : orderList) {
+            if (order.getId() == updatedOrder.getId()) {
+                order.setCustomerName(updatedOrder.getCustomerName());
+                order.setTableNumber(updatedOrder.getTableNumber());
+                order.setOrderDetails(updatedOrder.getOrderDetails());
+                order.setTotalPrice(updatedOrder.getTotalPrice());
+                saveOrders();
+                break;
+            }
+        }
     }
 
     public Order getOrderById(int id) {

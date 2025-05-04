@@ -10,12 +10,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class ShowUsersServlet extends HttpServlet {
     private UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("adminUser") == null) {
+            resp.sendRedirect("adminLogin.jsp");
+            return;
+        }
         List<User> users = userService.getAllUsers();
         req.setAttribute("users", users);
         req.getRequestDispatcher("showUsers.jsp").forward(req, resp);

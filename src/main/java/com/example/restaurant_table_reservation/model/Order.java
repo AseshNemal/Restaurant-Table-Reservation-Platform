@@ -1,37 +1,58 @@
 package com.example.restaurant_table_reservation.model;
 
-import java.util.List;
-
 public class Order {
     private int id;
-    private int userId;
-    private List<OrderItem> items;
+    private String customerName;
+    private int tableNumber;
+    private String orderDetails;
     private double totalPrice;
-    private String status; // e.g., "Pending", "Confirmed", "Completed", "Cancelled"
 
     public Order() {}
 
-    public Order(int id, int userId, List<OrderItem> items, double totalPrice, String status) {
-        this.id = id;
-        this.userId = userId;
-        this.items = items;
+    public Order(String customerName, int tableNumber, String orderDetails, double totalPrice) {
+        this.customerName = customerName;
+        this.tableNumber = tableNumber;
+        this.orderDetails = orderDetails;
         this.totalPrice = totalPrice;
-        this.status = status;
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public List<OrderItem> getItems() { return items; }
-    public void setItems(List<OrderItem> items) { this.items = items; }
+    public String getCustomerName() {
+        return customerName;
+    }
 
-    public double getTotalPrice() { return totalPrice; }
-    public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
+    public String getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(String orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }

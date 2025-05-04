@@ -21,59 +21,49 @@
             padding: 20px;
         }
 
-        h1, h2 {
+        h2 {
             font-size: 48px;
             margin-bottom: 10px;
         }
 
-        p {
-            font-size: 20px;
-            margin-bottom: 40px;
+        table {
+            width: 80%;
+            margin: 0 auto 40px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
         }
 
-        .button-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
         }
 
-        a {
-            text-decoration: none;
-            color: #ff6347;
+        th {
+            background-color: rgba(255, 99, 71, 0.8);
         }
 
-        .btn {
-            padding: 12px 24px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        a.btn {
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
             background-color: #ff6347;
             color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
         }
 
-        .btn:hover {
+        a.btn:hover {
             background-color: #ff4500;
-        }
-
-        @media (max-width: 600px) {
-            h1, h2 {
-                font-size: 32px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            .btn {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
+<div class="overlay">
 <h2>Registered Users</h2>
 <table>
     <thead>
@@ -85,44 +75,34 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="user" items="${users}">
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.username}</td>
-            <td>${user.email}</td>
-            <td>
-                <a href="editUser?id=${user.id}" class="btn">Edit</a>
-                <a href="deleteUser?id=${user.id}" class="btn" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
-            </td>
-        </tr>
-    </c:forEach>
+    <%
+        java.util.List<com.example.restaurant_table_reservation.model.User> users = 
+            (java.util.List<com.example.restaurant_table_reservation.model.User>) request.getAttribute("users");
+        if (users != null && !users.isEmpty()) {
+            for (com.example.restaurant_table_reservation.model.User user : users) {
+    %>
+    <tr>
+        <td><%= user.getId() %></td>
+        <td><%= user.getUsername() %></td>
+        <td><%= user.getEmail() %></td>
+        <td>
+            <a href="editUser?id=<%= user.getId() %>" class="btn">Edit</a>
+            <a href="deleteUser?id=<%= user.getId() %>" class="btn" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+        </td>
+    </tr>
+    <%
+            }
+        } else {
+    %>
+    <tr>
+        <td colspan="4">No users found.</td>
+    </tr>
+    <%
+        }
+    %>
     </tbody>
 </table>
-<p><a href="menu">Back to Menu</a></p>
-table {
-    width: 80%;
-    margin: 0 auto 40px auto;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-th, td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-th {
-    background-color: rgba(255, 99, 71, 0.8);
-}
-
-tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-a.btn {
-    padding: 6px 12px;
-    font-size: 14px;
-    border-radius: 4px;
-    background-color: #ff6347;
+<p><a href="menu.jsp" class="btn">Back to Menu</a></p>
+</div>
+</body>
+</html>

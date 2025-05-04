@@ -2,7 +2,7 @@
 <%@ page import="java.util.*, com.example.restaurant_table_reservation.model.Order" %>
 <html>
 <head>
-    <title>Show Orders</title>
+    <title>Admin - Manage Orders</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,7 +56,7 @@
     </style>
 </head>
 <body>
-<h2>Orders</h2>
+<h2>Manage Orders (Admin)</h2>
 
 <table>
     <thead>
