@@ -2,13 +2,14 @@ package com.example.restaurant_table_reservation.service;
 
 
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.restaurant_table_reservation.model.MenuItem;
 import com.example.restaurant_table_reservation.utils.FileUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.*;
 
 public class MenuService {
     private List<MenuItem> menuList;
@@ -31,12 +32,13 @@ public class MenuService {
     }
 
     public List<MenuItem> getAllItems() {
+        loadMenu();
         return menuList;
     }
 
-    public void addItem(String name, double price, String description, boolean available, String imageUrl) {
+    public void addItem(String name, double price, String description, boolean available, String imageUrl, String category) {
         int id = menuList.isEmpty() ? 1 : menuList.get(menuList.size() - 1).getId() + 1;
-        menuList.add(new MenuItem(id, name, price, description, available, imageUrl));
+        menuList.add(new MenuItem(id, name, price, description, available, imageUrl, category));
         saveMenu();
         loadMenu();
         loadMenu();
@@ -49,7 +51,7 @@ public class MenuService {
         saveMenu();
     }
 
-    public void updateItem(int id, String name, double price, String description, boolean available, String imageUrl) {
+    public void updateItem(int id, String name, double price, String description, boolean available, String imageUrl, String category) {
         for (MenuItem item : menuList) {
             if (item.getId() == id) {
                 item.setName(name);
@@ -57,6 +59,7 @@ public class MenuService {
                 item.setDescription(description);
                 item.setAvailable(available);
                 item.setImageUrl(imageUrl);
+                item.setCategory(category);
                 saveMenu();
                 break;
             }

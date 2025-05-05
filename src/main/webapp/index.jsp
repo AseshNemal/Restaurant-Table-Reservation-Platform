@@ -78,14 +78,14 @@
   <h1>Welcome to DineEase</h1>
   <p>Your ultimate solution for seamless table reservations and menu management</p>
     <div class="button-group">
-    <a href="menu.jsp" class="btn">View Menu</a>
+    <a href="categoryMenu" class="btn">View Menu</a>
     <a href="reservations.jsp" class="btn">Reserve a Table</a>
-    <a href="hello" class="btn">Hello Servlet</a>
-    <a href="showUsers" class="btn">View Users</a>
-    <a href="adminShowOrders.jsp" class="btn">Manage Orders (Admin)</a>
-    <a href="userAddOrder.jsp" class="btn">Place Order (User)</a>
-    <a href="tables.jsp" class="btn">Manage Tables</a>
-    <a href="reviews.jsp" class="btn">Customer Reviews</a>
+    <a href="adminLogin.jsp" class="btn">Admin Login</a>
+    <a href="login.jsp" class="btn">Login</a>
+    <a href="submitReview.jsp" class="btn">Add Feedback</a>
+    <a href="userAddOrder.jsp" class="btn">Place Order</a>
+    <a href="userTables" class="btn">Manage Tables</a>
+    <a href="userReviews" class="btn">View Feedback</a>
   </div>
 </div>
 </body>

@@ -5,14 +5,16 @@ public class Table {
     private int number;
     private int capacity;
     private boolean available;
+    private String category; // indoor or outdoor
 
     public Table() {}
 
-    public Table(int id, int number, int capacity, boolean available) {
+    public Table(int id, int number, int capacity, boolean available, String category) {
         this.id = id;
         this.number = number;
         this.capacity = capacity;
         this.available = available;
+        this.category = category;
     }
 
     public int getId() {
@@ -45,5 +47,13 @@ public class Table {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -2,16 +2,16 @@ package com.example.restaurant_table_reservation.servlet;
 
 
 
+import java.io.IOException;
+import java.util.List;
+
 import com.example.restaurant_table_reservation.model.MenuItem;
 import com.example.restaurant_table_reservation.service.MenuService;
+
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
-import java.util.List;
 
 
 public class MenuServlet extends HttpServlet {
@@ -43,8 +43,9 @@ public class MenuServlet extends HttpServlet {
             String description = req.getParameter("description");
             boolean available = Boolean.parseBoolean(req.getParameter("available"));
             String imageUrl = req.getParameter("imageUrl");
+            String category = req.getParameter("category");
 
-            service.addItem(name, price, description, available, imageUrl);
+            service.addItem(name, price, description, available, imageUrl, category);
 
         } else if ("delete".equals(action)) {
             int id = Integer.parseInt(req.getParameter("id"));
@@ -57,8 +58,9 @@ public class MenuServlet extends HttpServlet {
             String description = req.getParameter("description");
             boolean available = Boolean.parseBoolean(req.getParameter("available"));
             String imageUrl = req.getParameter("imageUrl");
+            String category = req.getParameter("category");
 
-            service.updateItem(id, name, price, description, available, imageUrl);
+            service.updateItem(id, name, price, description, available, imageUrl, category);
         }
 
         resp.sendRedirect("menu");

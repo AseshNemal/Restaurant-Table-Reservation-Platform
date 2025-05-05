@@ -4,14 +4,6 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <servlet>
-        <servlet-name>hello</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.HelloServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>hello</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>MenuServlet</servlet-name>
@@ -108,4 +100,26 @@
         <servlet-name>DeleteOrderServlet</servlet-name>
         <url-pattern>/deleteOrder</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+    <servlet-name>UserTablesServlet</servlet-name>
+    <servlet-class>com.example.restaurant_table_reservation.servlet.UserTablesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserTablesServlet</servlet-name>
+        <url-pattern>/userTables</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>UserReviewsServlet</servlet-name>
+    <servlet-class>com.example.restaurant_table_reservation.servlet.UserReviewsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserReviewsServlet</servlet-name>
+        <url-pattern>/userReviews</url-pattern>
+    </servlet-mapping>
+
+
+
+    
 </web-app>

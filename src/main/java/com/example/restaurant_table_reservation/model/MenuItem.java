@@ -7,16 +7,18 @@ public class MenuItem {
     private String description;
     private boolean available;
     private String imageUrl;
+    private String category;  // New category field
 
     public MenuItem() {}
 
-    public MenuItem(int id, String name, double price, String description, boolean available, String imageUrl) {
+    public MenuItem(int id, String name, double price, String description, boolean available, String imageUrl, String category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.available = available;
         this.imageUrl = imageUrl;
+        this.category = category;
     }
 
     // Getters and Setters
@@ -37,4 +39,7 @@ public class MenuItem {
 
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 }

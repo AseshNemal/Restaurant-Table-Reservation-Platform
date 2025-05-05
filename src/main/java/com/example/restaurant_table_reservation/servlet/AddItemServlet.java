@@ -1,12 +1,13 @@
 package com.example.restaurant_table_reservation.servlet;
 
 
+import java.io.IOException;
+
 import com.example.restaurant_table_reservation.service.MenuService;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
 
 public class AddItemServlet extends HttpServlet {
     private MenuService service = new MenuService();
@@ -18,9 +19,12 @@ public class AddItemServlet extends HttpServlet {
         boolean available = Boolean.parseBoolean(req.getParameter("available"));
         String imageUrl = req.getParameter("imageUrl");
 
-        service.addItem(name, price, description, available, imageUrl);  // Add item
+        String category = req.getParameter("category");
+        service.addItem(name, price, description, available, imageUrl, category);
+        
 
         resp.sendRedirect("menu");
 
+    
     }
 }

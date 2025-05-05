@@ -101,6 +101,16 @@
   <label for="price">Price:</label>
   <input type="number" id="price" name="price" value="<%= itemToEdit.getPrice() %>" step="0.01" required>
 
+  <label for="category">Category:</label>
+  <select id="category" name="category" required>
+    <option value="">Select category</option>
+    <option value="main dishes" <%= "main dishes".equals(itemToEdit.getCategory()) ? "selected" : "" %>>Main Dishes</option>
+    <option value="appetizers" <%= "appetizers".equals(itemToEdit.getCategory()) ? "selected" : "" %>>Appetizers</option>
+    <option value="hard drink" <%= "hard drink".equals(itemToEdit.getCategory()) ? "selected" : "" %>>Hard Drink</option>
+    <option value="soft drink" <%= "soft drink".equals(itemToEdit.getCategory()) ? "selected" : "" %>>Soft Drink</option>
+    <option value="desserts" <%= "desserts".equals(itemToEdit.getCategory()) ? "selected" : "" %>>Desserts</option>
+  </select>
+
   <label for="description">Description:</label>
   <textarea id="description" name="description"><%= itemToEdit.getDescription() %></textarea>
 
@@ -118,6 +128,3 @@
 
 <div class="back-link">
   <a href="menu">← Back to Menu</a>
-</div>
-</body>
-</html>

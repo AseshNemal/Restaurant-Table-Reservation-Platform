@@ -44,7 +44,7 @@ public class UserService {
         int id = userList.isEmpty() ? 1 : userList.get(userList.size() - 1).getId() + 1;
         userList.add(new User(id, username, password, email));
         saveUsers();
-        loadUsers();
+        // Removed loadUsers() call to avoid reloading from file immediately
         return true;
     }
 

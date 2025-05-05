@@ -35,12 +35,33 @@ public class ReviewService {
 
     public void addReview(String customerName, String email, String message, int rating) {
         int id = reviewList.isEmpty() ? 1 : reviewList.get(reviewList.size() - 1).getId() + 1;
-        reviewList.add(new Review(id, customerName, email, message, rating));
+        reviewList.add(new Review(id, customerName, email, message, rating, null));
         saveReviews();
     }
 
     public void deleteReview(int id) {
         reviewList.removeIf(review -> review.getId() == id);
         saveReviews();
+    }
+
+    public Review getReviewById(int id) {
+        for (Review review : reviewList) {
+            if (review.getId() == id) {
+                return review;
+            }
+        }
+        return null;
+    }
+
+    public void updateReview(int id, String customerName, String email, String message, int rating, String adminReply) {
+        Review review = getReviewById(id);
+        if (review != null) {
+            review.setCustomerName(customerName);
+            review.setEmail(email);
+            review.setMessage(message);
+            review.setRating(rating);
+            review.setAdminReply(adminReply);
+            saveReviews();
+        }
     }
 }

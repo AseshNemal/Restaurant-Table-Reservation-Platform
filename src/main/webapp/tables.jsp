@@ -24,6 +24,7 @@
             padding: 12px;
             border: 1px solid #ddd;
             text-align: center;
+            color: #000000; /* Added black text color for table cells */
         }
         th {
             background-color: #4CAF50;
@@ -99,6 +100,7 @@
         <th>Table Number</th>
         <th>Capacity</th>
         <th>Availability</th>
+        <th>Category</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -112,8 +114,10 @@
         <td><%= table.getNumber() %></td>
         <td><%= table.getCapacity() %></td>
         <td><%= table.isAvailable() ? "Available" : "Not Available" %></td>
+        <td><%= table.getCategory() != null ? table.getCategory() : "" %></td>
         <td class="action-buttons">
-            <form action="editTable.jsp" method="GET" style="display:inline;">
+            <form action="tables" method="GET" style="display:inline;">
+                <input type="hidden" name="action" value="edit" />
                 <input type="hidden" name="id" value="<%= table.getId() %>">
                 <button type="submit" class="edit-btn">Edit</button>
             </form>
@@ -129,7 +133,7 @@
         } else {
     %>
     <tr>
-        <td colspan="4">No tables available.</td>
+        <td colspan="5">No tables available.</td>
     </tr>
     <%
         }
@@ -153,7 +157,15 @@
         <option value="false">Not Available</option>
     </select>
 
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        <option value="Indoor">Indoor</option>
+        <option value="Outdoor">Outdoor</option>
+    </select>
+
     <button type="submit">Add Table</button>
+
+
 </form>
 
 </body>

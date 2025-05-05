@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
-            resp.sendRedirect("menu"); // Redirect to menu or home page after login
+            resp.sendRedirect("categoryMenu"); // Redirect to menu or home page after login
         } else {
             req.setAttribute("errorMessage", "Invalid username or password");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

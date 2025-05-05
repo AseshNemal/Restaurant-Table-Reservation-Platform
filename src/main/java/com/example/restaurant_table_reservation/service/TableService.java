@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.restaurant_table_reservation.model.Table;
-import com.example.restaurant_table_reservation.utils.FileUtils;
+import com.example.restaurant_table_reservation.utils.TableFileUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -18,7 +18,7 @@ public class TableService {
     }
 
     private void loadTables() {
-        String json = FileUtils.readFile();
+        String json = TableFileUtils.readFile();
         Type listType = new TypeToken<List<Table>>(){}.getType();
         tableList = gson.fromJson(json, listType);
         if (tableList == null) tableList = new ArrayList<>();
@@ -26,16 +26,16 @@ public class TableService {
     }
 
     private void saveTables() {
-        FileUtils.writeFile(gson.toJson(tableList));
+        TableFileUtils.writeFile(gson.toJson(tableList));
     }
 
     public List<Table> getAllTables() {
         return tableList;
     }
 
-    public void addTable(int number, int capacity, boolean available) {
+    public void addTable(int number, int capacity, boolean available, String category) {
         int id = tableList.isEmpty() ? 1 : tableList.get(tableList.size() - 1).getId() + 1;
-        tableList.add(new Table(id, number, capacity, available));
+        tableList.add(new Table(id, number, capacity, available, category));
         saveTables();
     }
 
@@ -44,12 +44,13 @@ public class TableService {
         saveTables();
     }
 
-    public void updateTable(int id, int number, int capacity, boolean available) {
+    public void updateTable(int id, int number, int capacity, boolean available, String category) {
         for (Table table : tableList) {
             if (table.getId() == id) {
                 table.setNumber(number);
                 table.setCapacity(capacity);
                 table.setAvailable(available);
+                table.setCategory(category);
                 saveTables();
                 break;
             }

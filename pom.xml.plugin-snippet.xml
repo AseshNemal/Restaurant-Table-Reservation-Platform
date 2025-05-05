@@ -1,0 +1,15 @@
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-maven-plugin</artifactId>
+      <version>11.0.15</version>
+      <configuration>
+        <scanIntervalSeconds>10</scanIntervalSeconds>
+        <webApp>
+          <contextPath>/</contextPath>
+        </webApp>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>

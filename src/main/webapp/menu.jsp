@@ -184,6 +184,7 @@
     <li>
         <div>
             <h3><%= item.getName() %> - $<%= item.getPrice() %></h3>
+            <p><strong>Category:</strong> <%= item.getCategory() %></p>
             <p><strong>Description:</strong> <%= item.getDescription() %></p>
             <p><strong>Status:</strong> <%= item.isAvailable() ? "Available" : "Not Available" %></p>
             <div class="action-buttons">
@@ -213,12 +214,24 @@
 
 <!-- Add Menu Item Form -->
 <h2 class="form-title">Add New Menu Item</h2>
-<form action="addItem" method="POST">
+<form action="menu" method="POST">
+    <input type="hidden" name="action" value="add">
+
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
 
     <label for="price">Price:</label>
     <input type="number" id="price" name="price" step="0.01" required>
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        <option value="">Select category</option>
+        <option value="main dishes">Main Dishes</option>
+        <option value="appetizers">Appetizers</option>
+        <option value="hard drink">Hard Drink</option>
+        <option value="soft drink">Soft Drink</option>
+        <option value="desserts">Desserts</option>
+    </select>
 
     <label for="description">Description:</label>
     <textarea id="description" name="description"></textarea>

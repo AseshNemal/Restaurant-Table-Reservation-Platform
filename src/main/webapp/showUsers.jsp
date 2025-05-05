@@ -65,7 +65,7 @@
 <body>
 <div class="overlay">
 <h2>Registered Users</h2>
-<table>
+<table class="data-table">
     <thead>
     <tr>
         <th>ID</th>

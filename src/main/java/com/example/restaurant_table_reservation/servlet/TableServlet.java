@@ -24,6 +24,22 @@ public class TableServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if ("edit".equals(action)) {
+            String idParam = req.getParameter("id");
+            if (idParam != null) {
+                int id = Integer.parseInt(idParam);
+                Table table = service.getTableById(id);
+                if (table != null) {
+                    req.setAttribute("table", table);
+                    req.getRequestDispatcher("editTable.jsp").forward(req, resp);
+                    return;
+                }
+            }
+            resp.sendRedirect("tables");
+            return;
+        }
+
         TableService service = (TableService) getServletContext().getAttribute("tableService");
         List<Table> tables = service.getAllTables();
         req.setAttribute("tables", tables);
@@ -39,7 +55,8 @@ public class TableServlet extends HttpServlet {
             int number = Integer.parseInt(req.getParameter("number"));
             int capacity = Integer.parseInt(req.getParameter("capacity"));
             boolean available = Boolean.parseBoolean(req.getParameter("available"));
-            service.addTable(number, capacity, available);
+            String category = req.getParameter("category");
+            service.addTable(number, capacity, available, category);
 
         } else if ("delete".equals(action)) {
             int id = Integer.parseInt(req.getParameter("id"));
@@ -50,7 +67,8 @@ public class TableServlet extends HttpServlet {
             int number = Integer.parseInt(req.getParameter("number"));
             int capacity = Integer.parseInt(req.getParameter("capacity"));
             boolean available = Boolean.parseBoolean(req.getParameter("available"));
-            service.updateTable(id, number, capacity, available);
+            String category = req.getParameter("category");
+            service.updateTable(id, number, capacity, available, category);
         }
 
         resp.sendRedirect("tables");

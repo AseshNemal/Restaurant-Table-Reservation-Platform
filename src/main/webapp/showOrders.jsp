@@ -58,7 +58,7 @@
 <body>
 <h2>Orders</h2>
 
-<table>
+<table class="data-table">
     <thead>
     <tr>
         <th>Order ID</th>
