@@ -59,6 +59,41 @@
 <body>
 <h2>Customer Reviews</h2>
 
+<%
+    Review editReview = (Review) request.getAttribute("editReview");
+    if (editReview != null) {
+%>
+<form action="reviews" method="POST" style="width: 90%; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+    <input type="hidden" name="action" value="update">
+    <input type="hidden" name="id" value="<%= editReview.getId() %>">
+
+    <label for="customerName">Name:</label>
+    <input type="text" id="customerName" name="customerName" value="<%= editReview.getCustomerName() %>" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="<%= editReview.getEmail() %>" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 8px; margin-bottom: 10px;"><%= editReview.getMessage() %></textarea>
+
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+        <option value="1" <%= editReview.getRating() == 1 ? "selected" : "" %>>1 - Poor</option>
+        <option value="2" <%= editReview.getRating() == 2 ? "selected" : "" %>>2 - Fair</option>
+        <option value="3" <%= editReview.getRating() == 3 ? "selected" : "" %>>3 - Good</option>
+        <option value="4" <%= editReview.getRating() == 4 ? "selected" : "" %>>4 - Very good</option>
+        <option value="5" <%= editReview.getRating() == 5 ? "selected" : "" %>>5 - Excellent</option>
+    </select>
+
+    <label for="adminReply">Admin Reply:</label>
+    <textarea id="adminReply" name="adminReply" rows="2" style="width: 100%; padding: 8px; margin-bottom: 10px;"><%= editReview.getAdminReply() != null ? editReview.getAdminReply() : "" %></textarea>
+
+    <button type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">Update Review</button>
+</form>
+<%
+    }
+%>
+
 <table>
     <thead>
     <tr>

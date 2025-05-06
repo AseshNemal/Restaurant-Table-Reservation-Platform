@@ -144,6 +144,7 @@
     </style>
 </head>
 <body>
+<button onclick="history.back()" style="margin: 20px; padding: 6px 12px; font-size: 1rem; cursor: pointer;">&larr; Back</button>
 <div class="login-container">
     <div class="login-header">
         <h2>Welcome Back</h2>

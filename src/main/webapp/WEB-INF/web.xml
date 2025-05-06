@@ -92,14 +92,7 @@
         <url-pattern>/editOrder</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>DeleteOrderServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.DeleteOrderServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeleteOrderServlet</servlet-name>
-        <url-pattern>/deleteOrder</url-pattern>
-    </servlet-mapping>
+    <!-- Removed DeleteOrderServlet declaration and mapping to avoid conflict with annotation -->
 
     <servlet>
     <servlet-name>UserTablesServlet</servlet-name>

@@ -12,7 +12,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
-    private UserService userService = new UserService();
+    private UserService userService;
+
+    @Override
+    public void init() throws ServletException {
+        userService = (UserService) getServletContext().getAttribute("userService");
+        if (userService == null) {
+            userService = new UserService();
+            getServletContext().setAttribute("userService", userService);
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,7 +37,13 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
-            resp.sendRedirect("categoryMenu"); // Redirect to menu or home page after login
+            // Check if user is admin by username or id (example: username "admin" is admin)
+            if ("admin".equalsIgnoreCase(user.getUsername())) {
+                session.setAttribute("adminUser", user.getUsername());
+                resp.sendRedirect("adminDashboard"); // Redirect to admin dashboard for admin users
+            } else {
+                resp.sendRedirect("categoryMenu"); // Redirect to menu or home page for regular users
+            }
         } else {
             req.setAttribute("errorMessage", "Invalid username or password");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

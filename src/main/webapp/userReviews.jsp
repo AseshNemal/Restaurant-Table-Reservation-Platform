@@ -43,6 +43,7 @@
     </style>
 </head>
 <body>
+<button onclick="history.back()" style="margin: 20px; padding: 6px 12px; font-size: 1rem; cursor: pointer;">&larr; Back</button>
 <h2>Customer Reviews</h2>
 <%
     List<Review> reviews = (List<Review>) request.getAttribute("reviews");

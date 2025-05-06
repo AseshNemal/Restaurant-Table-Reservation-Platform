@@ -52,7 +52,8 @@ public class ReviewServlet extends HttpServlet {
             String message = req.getParameter("message");
             int rating = Integer.parseInt(req.getParameter("rating"));
             service.addReview(customerName, email, message, rating);
-
+            resp.sendRedirect("index.jsp");
+            return;
         } else if ("update".equals(action)) {
             int id = Integer.parseInt(req.getParameter("id"));
             String customerName = req.getParameter("customerName");

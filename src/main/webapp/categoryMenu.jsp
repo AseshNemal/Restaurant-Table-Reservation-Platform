@@ -151,6 +151,7 @@
 <body>
 <header>
     <div class="container">
+        <button onclick="history.back()" style="margin-bottom: 10px; padding: 6px 12px; font-size: 1rem; cursor: pointer;">&larr; Back</button>
         <h1>Our Menu</h1>
     </div>
 </header>

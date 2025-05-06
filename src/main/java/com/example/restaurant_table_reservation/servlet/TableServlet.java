@@ -71,6 +71,6 @@ public class TableServlet extends HttpServlet {
             service.updateTable(id, number, capacity, available, category);
         }
 
-        resp.sendRedirect("tables");
+        resp.sendRedirect("adminDashboard");
     }
 }

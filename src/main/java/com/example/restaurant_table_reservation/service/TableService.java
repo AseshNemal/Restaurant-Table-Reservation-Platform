@@ -30,6 +30,7 @@ public class TableService {
     }
 
     public List<Table> getAllTables() {
+        loadTables(); // Reload tables from file to get latest data
         return tableList;
     }
 

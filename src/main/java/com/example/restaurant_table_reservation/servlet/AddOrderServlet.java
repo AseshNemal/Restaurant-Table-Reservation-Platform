@@ -30,6 +30,6 @@ public class AddOrderServlet extends HttpServlet {
 
         service.addOrder(new Order(customerName, tableNumber, orderDetails, totalPrice));
 
-        resp.sendRedirect("showOrders");
+        resp.sendRedirect("index.jsp");
     }
 }

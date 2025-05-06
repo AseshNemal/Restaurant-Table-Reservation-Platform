@@ -65,5 +65,9 @@
 
     <button type="submit">Place Order</button>
 </form>
+<br/>
+<form action="showOrders" method="GET">
+    <button type="submit">Back to Orders</button>
+</form>
 </body>
 </html>

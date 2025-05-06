@@ -53,6 +53,7 @@
     </style>
 </head>
 <body>
+<button onclick="history.back()" style="margin: 20px; padding: 6px 12px; font-size: 1rem; cursor: pointer;">&larr; Back</button>
 <h2>Submit a Review</h2>
 <form action="reviews" method="POST">
     <input type="hidden" name="action" value="add">

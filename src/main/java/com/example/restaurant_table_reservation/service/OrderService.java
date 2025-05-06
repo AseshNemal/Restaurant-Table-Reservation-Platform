@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.restaurant_table_reservation.model.Order;
-import com.example.restaurant_table_reservation.utils.FileUtils;
+import com.example.restaurant_table_reservation.utils.OrderFileUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -18,7 +18,7 @@ public class OrderService {
     }
 
     private void loadOrders() {
-        String json = FileUtils.readFile();
+        String json = OrderFileUtils.readFile();
         Type listType = new TypeToken<List<Order>>(){}.getType();
         orderList = gson.fromJson(json, listType);
         if (orderList == null) orderList = new ArrayList<>();
@@ -26,10 +26,11 @@ public class OrderService {
     }
 
     private void saveOrders() {
-        FileUtils.writeFile(gson.toJson(orderList));
+        OrderFileUtils.writeFile(gson.toJson(orderList));
     }
 
     public List<Order> getAllOrders() {
+        loadOrders(); // Reload orders from file to get latest data
         return orderList;
     }
 

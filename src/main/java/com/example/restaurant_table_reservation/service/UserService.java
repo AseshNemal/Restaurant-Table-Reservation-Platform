@@ -31,6 +31,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
+        loadUsers(); // Reload users from file to get latest data
         return userList;
     }
 

@@ -86,7 +86,7 @@
                 <input type="hidden" name="id" value="<%= order.getId() %>">
                 <button type="submit" class="edit-btn">Edit</button>
             </form>
-            <form action="DeleteOrderServlet" method="POST" style="display:inline;">
+            <form action="deleteOrder" method="POST" style="display:inline;">
                 <input type="hidden" name="id" value="<%= order.getId() %>">
                 <button type="submit" class="delete-btn">Delete</button>
             </form>

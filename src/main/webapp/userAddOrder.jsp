@@ -49,6 +49,7 @@
     </style>
 </head>
 <body>
+<button onclick="history.back()" style="margin: 20px; padding: 6px 12px; font-size: 1rem; cursor: pointer;">&larr; Back</button>
 <h2>Place Your Order</h2>
 <form action="AddOrderServlet" method="POST">
     <label for="customerName">Your Name:</label>
