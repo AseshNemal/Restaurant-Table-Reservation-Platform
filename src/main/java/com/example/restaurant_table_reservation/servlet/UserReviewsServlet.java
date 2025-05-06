@@ -1,4 +1,4 @@
-package com.example.restaurant_table_reservation.servlet.feedback;
+package com.example.restaurant_table_reservation.servlet;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.restaurant_table_reservation.servlet.order;
+package com.example.restaurant_table_reservation.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,6 +7,7 @@ import com.example.restaurant_table_reservation.model.Order;
 import com.example.restaurant_table_reservation.service.OrderService;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
