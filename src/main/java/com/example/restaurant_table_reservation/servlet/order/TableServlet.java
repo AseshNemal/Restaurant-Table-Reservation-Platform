@@ -1,4 +1,4 @@
-package com.example.restaurant_table_reservation.servlet;
+package com.example.restaurant_table_reservation.servlet.order;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,12 +7,10 @@ import com.example.restaurant_table_reservation.model.Table;
 import com.example.restaurant_table_reservation.service.TableService;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/tables")
 public class TableServlet extends HttpServlet {
     private TableService service;
 

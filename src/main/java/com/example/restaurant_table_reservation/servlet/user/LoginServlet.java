@@ -1,4 +1,4 @@
-package com.example.restaurant_table_reservation.servlet;
+package com.example.restaurant_table_reservation.servlet.user;
 
 import java.io.IOException;
 

@@ -1,5 +1,4 @@
-package com.example.restaurant_table_reservation.servlet;
-
+package com.example.restaurant_table_reservation.servlet.menu;
 
 import java.io.IOException;
 

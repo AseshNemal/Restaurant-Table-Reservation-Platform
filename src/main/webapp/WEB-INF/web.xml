@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>MenuServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.MenuServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.menu.MenuServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MenuServlet</servlet-name>
@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.LoginServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.user.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>RegistrationServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.RegistrationServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.user.RegistrationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationServlet</servlet-name>
@@ -44,7 +44,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowUsersServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.ShowUsersServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.user.ShowUsersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowUsersServlet</servlet-name>
@@ -52,7 +52,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EditUserServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.EditUserServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.user.EditUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditUserServlet</servlet-name>
@@ -61,7 +61,7 @@
 
     <servlet>
         <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.DeleteUserServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.user.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>
@@ -69,7 +69,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowOrdersServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.ShowOrdersServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.order.ShowOrdersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowOrdersServlet</servlet-name>
@@ -77,7 +77,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AddOrderServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.AddOrderServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.order.AddOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddOrderServlet</servlet-name>
@@ -85,7 +85,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>EditOrderServlet</servlet-name>
-        <servlet-class>com.example.restaurant_table_reservation.servlet.EditOrderServlet</servlet-class>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.order.EditOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditOrderServlet</servlet-name>
@@ -96,7 +96,7 @@
 
     <servlet>
     <servlet-name>UserTablesServlet</servlet-name>
-    <servlet-class>com.example.restaurant_table_reservation.servlet.UserTablesServlet</servlet-class>
+    <servlet-class>com.example.restaurant_table_reservation.servlet.user.UserTablesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserTablesServlet</servlet-name>
@@ -105,7 +105,7 @@
 
     <servlet>
     <servlet-name>UserReviewsServlet</servlet-name>
-    <servlet-class>com.example.restaurant_table_reservation.servlet.UserReviewsServlet</servlet-class>
+    <servlet-class>com.example.restaurant_table_reservation.servlet.feedback.UserReviewsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserReviewsServlet</servlet-name>
@@ -115,4 +115,20 @@
 
 
     
+    <servlet>
+        <servlet-name>ReviewServlet</servlet-name>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.feedback.ReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewServlet</servlet-name>
+        <url-pattern>/reviews</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TableServlet</servlet-name>
+        <servlet-class>com.example.restaurant_table_reservation.servlet.order.TableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TableServlet</servlet-name>
+        <url-pattern>/tables</url-pattern>
+    </servlet-mapping>
 </web-app>
