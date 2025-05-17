@@ -294,7 +294,7 @@
   </section>
 
   <div class="action-buttons">
-    <a href="#" class="btn btn-primary">
+    <a href="userTables" class="btn btn-primary">
       <i class="fas fa-bookmark"></i> Reserve a Table
     </a>
     <a href="categoryMenu" class="btn btn-secondary">
