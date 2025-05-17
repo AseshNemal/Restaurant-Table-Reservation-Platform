@@ -1,6 +1,8 @@
 package com.example.restaurant_table_reservation.servlet;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 import com.example.restaurant_table_reservation.model.Order;
 import com.example.restaurant_table_reservation.service.OrderService;
@@ -28,7 +30,17 @@ public class AddOrderServlet extends HttpServlet {
         String orderDetails = req.getParameter("orderDetails");
         double totalPrice = Double.parseDouble(req.getParameter("totalPrice"));
 
-        service.addOrder(new Order(customerName, tableNumber, orderDetails, totalPrice));
+        String orderDateTimeStr = req.getParameter("orderDateTime");
+        LocalDateTime orderDateTime = null;
+        try {
+            if (orderDateTimeStr != null && !orderDateTimeStr.isEmpty()) {
+                orderDateTime = LocalDateTime.parse(orderDateTimeStr);
+            }
+        } catch (DateTimeParseException e) {
+            orderDateTime = LocalDateTime.now();
+        }
+
+        service.addOrder(new Order(customerName, tableNumber, orderDetails, totalPrice, orderDateTime));
 
         resp.sendRedirect("index.jsp");
     }

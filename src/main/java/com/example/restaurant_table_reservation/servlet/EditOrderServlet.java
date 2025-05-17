@@ -1,14 +1,15 @@
 package com.example.restaurant_table_reservation.servlet;
 
+import java.io.IOException;
+
 import com.example.restaurant_table_reservation.model.Order;
 import com.example.restaurant_table_reservation.service.OrderService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
 
 @WebServlet("/EditOrderServlet")
 public class EditOrderServlet extends HttpServlet {
@@ -39,8 +40,12 @@ public class EditOrderServlet extends HttpServlet {
         String orderDetails = req.getParameter("orderDetails");
         double totalPrice = Double.parseDouble(req.getParameter("totalPrice"));
 
-        Order updatedOrder = new Order(customerName, tableNumber, orderDetails, totalPrice);
-        orderService.updateOrder(updatedOrder);
+        Order existingOrder = orderService.getOrderById(id);
+        if (existingOrder != null) {
+            Order updatedOrder = new Order(customerName, tableNumber, orderDetails, totalPrice, existingOrder.getOrderDateTime());
+            updatedOrder.setId(id);
+            orderService.updateOrder(updatedOrder);
+        }
 
         resp.sendRedirect("showOrders");
     }

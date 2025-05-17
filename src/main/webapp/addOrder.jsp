@@ -50,21 +50,24 @@
 </head>
 <body>
 <h2>Add New Order</h2>
-<form action="AddOrderServlet" method="POST">
-    <label for="customerName">Customer Name:</label>
-    <input type="text" id="customerName" name="customerName" required>
+    <form action="AddOrderServlet" method="POST">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
 
-    <label for="tableNumber">Table Number:</label>
-    <input type="number" id="tableNumber" name="tableNumber" required>
+        <label for="tableNumber">Table Number:</label>
+        <input type="number" id="tableNumber" name="tableNumber" required>
 
-    <label for="orderDetails">Order Details:</label>
-    <textarea id="orderDetails" name="orderDetails" rows="4" required></textarea>
+        <label for="orderDetails">Order Details:</label>
+        <textarea id="orderDetails" name="orderDetails" rows="4" required></textarea>
 
-    <label for="totalPrice">Total Price:</label>
-    <input type="number" id="totalPrice" name="totalPrice" step="0.01" required>
+        <label for="totalPrice">Total Price:</label>
+        <input type="number" id="totalPrice" name="totalPrice" step="0.01" required>
 
-    <button type="submit">Place Order</button>
-</form>
+        <label for="orderDateTime">Order Date and Time:</label>
+        <input type="datetime-local" id="orderDateTime" name="orderDateTime" required>
+
+        <button type="submit">Place Order</button>
+    </form>
 <br/>
 <form action="showOrders" method="GET">
     <button type="submit">Back to Orders</button>

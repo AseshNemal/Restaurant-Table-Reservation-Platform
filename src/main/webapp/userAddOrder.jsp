@@ -64,6 +64,9 @@
     <label for="totalPrice">Total Price ($):</label>
     <input type="number" id="totalPrice" name="totalPrice" step="0.01" required>
 
+    <label for="orderDateTime">Order Date and Time:</label>
+    <input type="datetime-local" id="orderDateTime" name="orderDateTime" required>
+
     <button type="submit">Submit Order</button>
 </form>
 </body>

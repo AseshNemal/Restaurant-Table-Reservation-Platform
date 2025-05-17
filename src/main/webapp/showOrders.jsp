@@ -66,6 +66,7 @@
         <th>Table Number</th>
         <th>Order Details</th>
         <th>Total Price</th>
+        <th>Order Date/Time</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -81,6 +82,7 @@
         <td><%= order.getTableNumber() %></td>
         <td><%= order.getOrderDetails() %></td>
         <td>$<%= order.getTotalPrice() %></td>
+        <td><%= order.getOrderDateTime() != null ? order.getOrderDateTime().toString() : "" %></td>
         <td class="action-buttons">
             <form action="EditOrderServlet" method="GET" style="display:inline;">
                 <input type="hidden" name="id" value="<%= order.getId() %>">

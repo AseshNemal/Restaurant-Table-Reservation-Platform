@@ -1,11 +1,14 @@
 package com.example.restaurant_table_reservation.model;
 
+import java.time.LocalDateTime;
+
 public class Order {
     private int id;
     private String customerName;
     private int tableNumber;
     private String orderDetails;
     private double totalPrice;
+    private LocalDateTime orderDateTime;
 
     public Order() {}
 
@@ -14,6 +17,15 @@ public class Order {
         this.tableNumber = tableNumber;
         this.orderDetails = orderDetails;
         this.totalPrice = totalPrice;
+        this.orderDateTime = LocalDateTime.now();
+    }
+
+    public Order(String customerName, int tableNumber, String orderDetails, double totalPrice, LocalDateTime orderDateTime) {
+        this.customerName = customerName;
+        this.tableNumber = tableNumber;
+        this.orderDetails = orderDetails;
+        this.totalPrice = totalPrice;
+        this.orderDateTime = orderDateTime;
     }
 
     public int getId() {
@@ -54,5 +66,13 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public LocalDateTime getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    public void setOrderDateTime(LocalDateTime orderDateTime) {
+        this.orderDateTime = orderDateTime;
     }
 }
