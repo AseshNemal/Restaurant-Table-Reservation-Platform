@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.*, com.example.restaurant_table_reservation.model.Order" %>
+<%@ page import="java.util.*, com.example.restaurant_table_reservation.model.Order, java.time.format.DateTimeFormatter" %>
+<%
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy HH:mm");
+%>
 <html>
 <head>
     <title>Show Orders</title>
@@ -82,7 +85,7 @@
         <td><%= order.getTableNumber() %></td>
         <td><%= order.getOrderDetails() %></td>
         <td>$<%= order.getTotalPrice() %></td>
-        <td><%= order.getOrderDateTime() != null ? order.getOrderDateTime().toString() : "" %></td>
+        <td><%= order.getOrderDateTime() != null ? order.getOrderDateTime().format(formatter) : "" %></td>
         <td class="action-buttons">
             <form action="EditOrderServlet" method="GET" style="display:inline;">
                 <input type="hidden" name="id" value="<%= order.getId() %>">

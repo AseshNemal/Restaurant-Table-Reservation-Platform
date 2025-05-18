@@ -7,7 +7,6 @@ import com.example.restaurant_table_reservation.model.Order;
 import com.example.restaurant_table_reservation.service.OrderService;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,7 +17,7 @@ public class ShowOrdersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Order> orders = orderService.getAllOrders();
+        List<Order> orders = orderService.getSortedOrders();
         req.setAttribute("orders", orders);
         req.getRequestDispatcher("showOrders.jsp").forward(req, resp);
     }

@@ -48,6 +48,7 @@ public class OrderService {
     }
 
     private List<Order> mergeSort(List<Order> orders) {
+        System.out.println("mergeSort called with orders: " + orders);
         if (orders.size() <= 1) {
             return orders;
         }
@@ -58,10 +59,12 @@ public class OrderService {
     }
 
     private List<Order> merge(List<Order> left, List<Order> right) {
+        System.out.println("merge called with left: " + left + ", right: " + right);
         List<Order> result = new ArrayList<>();
         int i = 0, j = 0;
         while (i < left.size() && j < right.size()) {
             // Sort by orderDateTime descending (most recent first)
+            System.out.println("Comparing " + left.get(i).getOrderDateTime() + " and " + right.get(j).getOrderDateTime());
             if (left.get(i).getOrderDateTime().isAfter(right.get(j).getOrderDateTime())) {
                 result.add(left.get(i));
                 i++;
@@ -78,6 +81,7 @@ public class OrderService {
             result.add(right.get(j));
             j++;
         }
+        System.out.println("merge result: " + result);
         return result;
     }
 
@@ -100,6 +104,7 @@ public class OrderService {
                 order.setTableNumber(updatedOrder.getTableNumber());
                 order.setOrderDetails(updatedOrder.getOrderDetails());
                 order.setTotalPrice(updatedOrder.getTotalPrice());
+                order.setOrderDateTime(updatedOrder.getOrderDateTime());
                 saveOrders();
                 break;
             }
